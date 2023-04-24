@@ -1,7 +1,5 @@
 import cold from './pics/cold.jpg';
 import hot from './pics/sun.jpg';
-//import def from './pics/def.jpg';
-//import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Descriptions from './comp/Descriptions';
 import './App.css';
 import { useEffect, useState } from 'react';
@@ -17,9 +15,7 @@ function App() {
 
   useEffect(()=>{
     const fetchWeatherData=async()=>{
-
-    
-    const data=await getFormattedWeatherData(city,units);
+   const data=await getFormattedWeatherData(city,units);
   setWeather(data);
 
   //dynamic bg
@@ -29,7 +25,7 @@ function App() {
 
   };
   fetchWeatherData();
-},[units,city]);
+},[units,city]);  //
 
 const handleUnitsClick=(e)=>{
 const button=e.currentTarget;
@@ -53,7 +49,9 @@ if(e.keyCode===13){
 }
 };
   return (
+    
     <div className="app" style={{backgroundImage:`url(${bg})`}}>
+    
 <div className='overlay'>
   {
     weather && (<div className='container'>
